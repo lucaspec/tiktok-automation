@@ -14,3 +14,10 @@ run generation script
 ```
 
 output video will be found in output folder
+
+
+## Adjust to your own needs
+
+1. Paste cropped text images to /texts folder
+2. Change text path in ocr.py
+3. Generate video as described above

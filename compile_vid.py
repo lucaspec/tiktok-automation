@@ -1,4 +1,5 @@
 from moviepy.editor import VideoFileClip, CompositeVideoClip, ImageClip, AudioFileClip
+import random as rd
 
 # Paths to input video, image, and audio files
 video_path = "videos/exp.mp4"
@@ -9,10 +10,14 @@ audio_path = "tts/exp1.mp3"
 output_path = "output/final.mp4"
 
 
-# Load the video clip, image and audio
+# Load the video clip and overlay text image
 audio_clip = AudioFileClip(audio_path, fps=44100) 
-video_clip = VideoFileClip(video_path).subclip(0, audio_clip.duration)
-overlay_image = ImageClip(image_path, duration=audio_clip.duration)
+video_clip = VideoFileClip(video_path)
+
+# Randomize subclip of background video
+start = rd.randint(0, int(video_clip.duration - audio_clip.duration))
+end = int(start + audio_clip.duration)
+video_clip = video_clip.subclip(start, end) 
 
 # Crop the video to a 16:9 vertical format
 print("video size before:", video_clip.size[0],  video_clip.size[1])
@@ -22,6 +27,7 @@ cropped_clip = video_clip.crop(x1=(video_clip.size[0] - video_width)/2, y1=0, x2
 print("video size after:", cropped_clip.size[0], cropped_clip.size[1])
 
 # Resize the overlay image
+overlay_image = ImageClip(image_path, duration=audio_clip.duration)
 print("image size before:", overlay_image.size[0],  overlay_image.size[1])
 image_width = int(video_width * 0.7)
 image_height = int((image_width / overlay_image.size[0]) * overlay_image.size[1])
