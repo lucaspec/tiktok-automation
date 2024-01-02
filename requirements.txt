@@ -2,3 +2,4 @@ pytesseract
 Pillow
 pyttsx3
 moviepy
+opencv-python
