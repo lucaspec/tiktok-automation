@@ -43,7 +43,7 @@ def save_text_as_mp3(text, output_file):
 
 
 if __name__ == "__main__":
-    # Replace 'image_path.jpg' with the path to your image file
+    # Replace 'texts/exp1.png' with the path to your image file
     image_path = 'texts/exp1.png'
 
     # Extract text from the image

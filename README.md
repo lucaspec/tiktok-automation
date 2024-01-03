@@ -1,5 +1,5 @@
 # Automated tiktok clip creation
-small repo to easily create tiktok clips using OCR, TTS and video compilation
+This is a small repo to easily create tiktok clips using OCR, TTS and video compilation
 
 ## Get started 
 
@@ -13,7 +13,9 @@ run generation script
 ./generate_vid.sh
 ```
 
-output video will be found in output folder
+the output video will be found in output folder
+
+**NOTE:** Make sure to download [tesseract.exe](https://tesseract-ocr.github.io/tessdoc/Downloads.html) and link its path at the start of ocr.py
 
 
 ## Adjust to your own needs
